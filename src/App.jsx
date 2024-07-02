@@ -2,6 +2,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom"
 import { Home } from "./views/home"
 import { Register } from "./views/register"
 
+import { Login } from './components/login'
 
 function App() {
   
