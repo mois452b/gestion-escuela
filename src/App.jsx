@@ -3,6 +3,7 @@ import { Home } from "./views/home"
 import { Register } from "./views/register"
 
 import { Login } from './views/login'
+import { ForgetPassword } from "./views/forgetPassword"
 
 function App() {
   
@@ -18,6 +19,10 @@ function App() {
     {
       path: "/login",
       element: <Login />
+    },
+    {
+      path: "/forget-password",
+      element: <ForgetPassword />
     }
   ])
 
