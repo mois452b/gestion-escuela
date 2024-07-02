@@ -2,7 +2,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom"
 import { Home } from "./views/home"
 import { Register } from "./views/register"
 
-import { Login } from './components/login'
+import { Login } from './views/login'
 
 function App() {
   
@@ -14,6 +14,10 @@ function App() {
     {
       path: "/register",
       element: <Register />
+    },
+    {
+      path: "/login",
+      element: <Login />
     }
   ])
 
