@@ -4,7 +4,8 @@ import { Register } from "./views/register"
 
 import { Login } from './views/login'
 import { ForgetPassword } from "./views/forgetPassword"
-import { Representative } from "./views/representative"
+import { RepresentativeView } from "./views/representativeView"
+import { CoordinatorView } from "./views/coordinatorView"
 
 function App() {
   
@@ -27,7 +28,11 @@ function App() {
     },
     {
       path: "/representative",
-      element: <Representative />
+      element: <RepresentativeView />
+    },
+    {
+      path: "/coordinatorView",
+      element: <CoordinatorView/>
     }
   ])
 

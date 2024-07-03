@@ -1,4 +1,4 @@
-import logo from '../imagen/logo (1).png'
+import logo from '../imagen/Imagen1.png';
 
 export function Login(){
     return <>

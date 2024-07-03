@@ -1,6 +1,6 @@
 
 
-export function Representative() {
+export function RepresentativeView() {
     const notas = [
         { año: 1, asignatura: 'Matemáticas', profesor: 'Juan Pérez', nota: 18 },
         { año: 2, asignatura: 'Historia', profesor: 'María López', nota: 20 },
