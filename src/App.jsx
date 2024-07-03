@@ -6,40 +6,76 @@ import { Login } from './views/login'
 import { ForgetPassword } from "./views/forgetPassword"
 import { RepresentativeView } from "./views/representativeView"
 import { CoordinatorView } from "./views/coordinatorView"
+import { AppLayout } from "./layout/appLayout"
 
 function App() {
   
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Home />,
+      element: (<AppLayout>
+                  <Home />
+                </AppLayout>),
     },
     {
       path: "/register",
-      element: <Register />
+      element: (<AppLayout>
+                  <Register />
+                </AppLayout>),
     },
     {
       path: "/login",
-      element: <Login />
+      element: (<AppLayout>
+                  <Login />
+                </AppLayout>),
     },
     {
       path: "/forget-password",
-      element: <ForgetPassword />
+      element: (<AppLayout>
+                <ForgetPassword />
+              </AppLayout>)
     },
     {
       path: "/representative",
-      element: <RepresentativeView />
+      element: (<AppLayout>
+                  <RepresentativeView />
+                </AppLayout>)
     },
     {
-      path: "/coordinatorView",
-      element: <CoordinatorView/>
+      path: "/coordinator",
+      element: (<AppLayout>
+                  <CoordinatorView />
+                </AppLayout>)
+    },
+    {
+      path: "/upload-student",
+      element: (<AppLayout>
+                  <CoordinatorView />
+                </AppLayout>)
+    },
+    {
+      path: "/upload-teacher",
+      element: (<AppLayout>
+                  <CoordinatorView />
+                </AppLayout>)
+    },
+    {
+      path: "/upload-subject",
+      element: (<AppLayout>
+                  <CoordinatorView />
+                </AppLayout>)
+    },
+    {
+      path: "/upload-representative",
+      element: (<AppLayout>
+                  <CoordinatorView />
+                </AppLayout>)
     }
   ])
 
   return (
     <div className="w-screen h-screen">
-      <RouterProvider router={router} />
-
+        <RouterProvider router={router} />
     </div>
   )
 }
