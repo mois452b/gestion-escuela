@@ -1,4 +1,4 @@
-
+import logo from '../imagen/logo (1).png'
 
 export function Login(){
     return <>
@@ -33,8 +33,7 @@ export function Login(){
             </div> 
             
             <div className="hidden relative lg:flex h-full w-1/2 items-center justify-center bg-gray-200 "> 
-                <div className="w-60 h-60 bg-gradient-to-tr from-green-500 to-violet-500 rounded-full animate-spin"/>
-                <div className="w-full h-1/2 absolute "/>
+                <img src={logo} alt="Logo del liceo" className="w-60 h-60 object-contain" />
             </div>
         </div>
     </>

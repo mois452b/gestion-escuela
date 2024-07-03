@@ -4,6 +4,7 @@ import { Register } from "./views/register"
 
 import { Login } from './views/login'
 import { ForgetPassword } from "./views/forgetPassword"
+import { Representative } from "./views/representative"
 
 function App() {
   
@@ -23,6 +24,10 @@ function App() {
     {
       path: "/forget-password",
       element: <ForgetPassword />
+    },
+    {
+      path: "/representative",
+      element: <Representative />
     }
   ])
 
