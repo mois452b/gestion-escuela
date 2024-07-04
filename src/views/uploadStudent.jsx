@@ -1,15 +1,16 @@
 import { useState } from 'react';
+import { uploadStudent } from '../services/students';
 
 export function UploadStudent() {
-
-    const [studentData, setStudentData] = useState({
+  const defaultStudentData = {
     name: '',
     lastName: '',
     CI: '',
     gender: '',
     birthdate: '',
     address: '',
-  });
+  }
+  const [studentData, setStudentData] = useState( defaultStudentData );
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -19,9 +20,15 @@ export function UploadStudent() {
     }));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log('Student Data:', studentData);
+    let data = await uploadStudent( studentData )
+    if( data ) {
+      setStudentData( defaultStudentData )
+      alert( 'Estudiante registrado exitosamente' )
+      return
+    }
+    alert( 'No se pudo registrar el estudiante' )
   };
 
     return <>
