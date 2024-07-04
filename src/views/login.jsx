@@ -1,7 +1,27 @@
 import { TEInput, TERipple } from "tw-elements-react";
 import logo from '../imagen/Sera.png';
+import { useState } from "react";
+import { authAdmin } from "../services/login";
+import { useNavigate } from "react-router-dom";
 
 export function Login() {
+  const navigate = useNavigate()
+
+  const [username, setUsername] = useState("")
+  const [password, setPassword] = useState("")
+
+  const onSubmit = (event) => {
+    event.preventDefault();
+
+    let datas = authAdmin( username, password )
+    if( datas ) {
+      navigate('/')
+      return
+    }
+    alert("Credenciales incorrectas")
+  }
+
+
   return (
     <section className="h-full bg-neutral-200 dark:bg-neutral-700">
       <div className="container h-full p-10">
@@ -18,20 +38,20 @@ export function Login() {
                       <h4 className="mb-12 mt-1 pb-1 text-xl font-semibold">Bienvenido</h4>
                     </div>
 
-                    <form>
+                    <form onSubmit={onSubmit}>
                       <p className="mb-4">Por favor, introduzca sus datos</p>
                       {/* Campo de usuario */}
-                      <TEInput type="text" label="Usuario" className="mb-4" />
+                      <TEInput name="username" type="text" label="Usuario" className="mb-4" value={username} onChange={(e) => setUsername(e.target.value)} />
 
                       {/* Campo de contraseña */}
-                      <TEInput type="password" label="Contraseña" className="mb-4" />
+                      <TEInput name="password" type="password" label="Contraseña" className="mb-4" value={password} onChange={(e) => setPassword(e.target.value)} />
 
                       {/* Botón de envío */}
                       <div className="mb-12 pb-1 pt-1 text-center">
                         <TERipple rippleColor="light" className="w-full">
                           <button
                             className="mb-3 inline-block w-full rounded px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_rgba(0,0,0,0.2)] transition duration-150 ease-in-out"
-                            type="button"
+                            type="submit"
                             style={{ background: "linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593)" }}
                           >
                             Ingresar
