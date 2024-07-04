@@ -7,6 +7,10 @@ import { ForgetPassword } from "./views/forgetPassword"
 import { RepresentativeView } from "./views/representativeView"
 import { CoordinatorView } from "./views/coordinatorView"
 import { AppLayout } from "./layout/appLayout"
+import { UploadStudent } from "./views/uploadStudent"
+import { UploadTeacher } from "./views/uploadTeacher"
+import {UploadSubject} from "./views/uploadSubject"
+import {UploadRepresentative} from "./views/uploadRepresentative"
 
 function App() {
   
@@ -50,25 +54,25 @@ function App() {
     {
       path: "/upload-student",
       element: (<AppLayout>
-                  <CoordinatorView />
+                  <UploadStudent />
                 </AppLayout>)
     },
     {
       path: "/upload-teacher",
       element: (<AppLayout>
-                  <CoordinatorView />
+                  <UploadTeacher />
                 </AppLayout>)
     },
     {
       path: "/upload-subject",
       element: (<AppLayout>
-                  <CoordinatorView />
+                  <UploadSubject />
                 </AppLayout>)
     },
     {
       path: "/upload-representative",
       element: (<AppLayout>
-                  <CoordinatorView />
+                  <UploadRepresentative />
                 </AppLayout>)
     }
   ])
