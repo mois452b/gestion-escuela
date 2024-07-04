@@ -1,6 +1,20 @@
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { getStudent } from "../services/students";
 
 
 export function RepresentativeView() {
+    const { CI } = useParams()
+    const [student, setStudent] = useState(null)
+
+    useEffect(() => {
+        (async () => {
+            const student = await getStudent(CI)
+            setStudent(student)
+        })()
+    })
+    
+
     const notas = [
         { año: 1, asignatura: 'Matemáticas', profesor: 'Juan Pérez', nota: 18 },
         { año: 2, asignatura: 'Historia', profesor: 'María López', nota: 20 },

@@ -40,7 +40,7 @@ function App() {
               </AppLayout>)
     },
     {
-      path: "/representative",
+      path: "/representative/:CI",
       element: (<AppLayout>
                   <RepresentativeView />
                 </AppLayout>)
