@@ -11,6 +11,11 @@ import { UploadStudent } from "./views/uploadStudent"
 import { UploadTeacher } from "./views/uploadTeacher"
 import {UploadSubject} from "./views/uploadSubject"
 import {UploadRepresentative} from "./views/uploadRepresentative"
+import { OpenAcademicPeriods } from "./views/openAcademicPeriods"
+import { OpenSections } from "./views/openSections"
+import { AssignAcademicPositions } from "./views/assignAcademicPositions"
+import { LoginStudents } from "./views/loginStudents"
+import { UploadGrades } from "./views/uploadGrades"
 
 function App() {
   
@@ -74,6 +79,36 @@ function App() {
       element: (<AppLayout>
                   <UploadRepresentative />
                 </AppLayout>)
+    },
+    {
+      path: "/open-academic-periods",
+      element: (<AppLayout>
+                  <OpenAcademicPeriods/>
+                </AppLayout>),
+    },
+    {
+      path: "/open-session",
+      element: (<AppLayout>
+                  <OpenSections/>
+                </AppLayout>),
+    },
+    {
+      path: "/assign-academic-positions",
+      element: (<AppLayout>
+                  <AssignAcademicPositions />
+                </AppLayout>),
+    },
+    {
+      path: "/login-students",
+      element: (<AppLayout>
+                  <LoginStudents />
+                </AppLayout>),
+    },
+    {
+      path: "/upload-grades",
+      element: (<AppLayout>
+                  <UploadGrades />
+                </AppLayout>),
     }
   ])
 

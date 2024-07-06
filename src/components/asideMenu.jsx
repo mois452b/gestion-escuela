@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt, faChalkboardTeacher, faTasks, faUserGraduate, faBook, faUsers, faUser } from '@fortawesome/free-solid-svg-icons';
+import { LogoutButton } from './logoutButton';
 
 export const AsideMenu = () => {
     return (
         <aside className="w-64 bg-gray-800 text-white h-full shadow-md">
+            <LogoutButton />
             <div className="p-4">
                 <h2 className="text-xl font-bold mb-6 text-center">Menú del Coordinador</h2>
                 <ul className="space-y-4">
