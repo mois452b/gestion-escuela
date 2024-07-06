@@ -9,7 +9,9 @@ export const AppLayout = ({ children }) => {
     const isLoggedIn = userIsLoggedIn()
     const isAdmin = userType() === 'admin'
 
-    if( !isLoggedIn && pathname !== "/login" && pathname !== "/register" ) {
+    console.log(isLoggedIn)
+
+    if( !isLoggedIn && pathname !== "/login" && pathname !== "/register" && pathname !== "/login-students" ) {
         console.log("entro")
         return <Navigate to="/login" />
     }

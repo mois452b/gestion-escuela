@@ -10,7 +10,7 @@ export const authAdmin = ( username, password ) => {
     }
 
     if ( username === 'admin' && password === 'admin' ) {
-        localStorage.setItem('isLoggedIn', 'true');
+        localStorage.setItem('isLoggedIn', true);
         localStorage.setItem('userType', 'admin');
         localStorage.setItem('user', JSON.stringify({ name: 'admin', type: 'admin' }));
         return {
@@ -23,13 +23,13 @@ export const authAdmin = ( username, password ) => {
 }
 
 export const logout = () => {
-    localStorage.setItem('isLoggedIn', 'false');
+    localStorage.setItem('isLoggedIn', false);
     localStorage.setItem('userType', '');
     localStorage.setItem('user', ''); 
 }
 
 export const userIsLoggedIn = () => {
-    return !!localStorage.getItem('isLoggedIn');
+    return !!JSON.parse(localStorage.getItem('isLoggedIn'));
 }
 
 export const userType = () => {

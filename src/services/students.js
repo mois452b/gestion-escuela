@@ -8,8 +8,9 @@ export const getStudents = async () => {
  * de lo contrario retorna el estudiante
  */
 export const uploadStudent = async (student) => {
-    if( !student && !student.name && !student.lastName && !student.CI && !student.birthdate && !student.address && !student.gender ) return
-    const students = getStudents()
+    if( !student && !student.name && !student.lastName && !student.CI && !student.birthdate && !student.address && !student.gender ) return false
+    const students = await getStudents()
+    console.log(students)
     if( students.find( s => s.CI === student.CI ) ) return false
     students.push(student)
     localStorage.setItem('students', JSON.stringify(students))
