@@ -12,7 +12,7 @@ export const authAdmin = ( username, password ) => {
     if ( username === 'admin' && password === 'admin' ) {
         localStorage.setItem('isLoggedIn', 'true');
         localStorage.setItem('userType', 'admin');
-        localStorage.setItem('user', JSON.stringify(datas))
+        localStorage.setItem('user', JSON.stringify({ name: 'admin', type: 'admin' }));
         return {
             name: 'admin',
             type: 'admin'
