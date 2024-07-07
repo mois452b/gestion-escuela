@@ -14,7 +14,11 @@ export function Login() {
     event.preventDefault();
 
     let datas = auth( username, password )
-    if( datas ) {
+    if( datas && datas.type == "admin" ) {
+      navigate('/')
+      return
+    }
+    if( datas && datas.type == "teacher" ) {
       navigate('/')
       return
     }
