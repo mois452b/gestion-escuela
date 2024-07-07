@@ -8,7 +8,7 @@ export const getStudents = async () => {
  * de lo contrario retorna el estudiante
  */
 export const uploadStudent = async (student) => {
-    if( !student && !student.name && !student.lastName && !student.CI && !student.birthdate && !student.address && !student.gender ) return false
+    if( !student || !student.name || !student.lastName || !student.CI || !student.birthdate || !student.address || !student.gender ) return false
     const students = await getStudents()
     console.log(students)
     if( students.find( s => s.CI === student.CI ) ) return false

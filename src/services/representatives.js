@@ -3,7 +3,7 @@ export const getRepresentatives = async () => {
     return JSON.parse(localStorage.getItem('Representatives')) || []
 }
 
-export const uploadRepresentatives = async (Representative) => {
+export const uploadRepresentative = async (Representative) => {
     if( !Representative ) return false
     const representatives = await getRepresentatives()
     if( representatives.find( s => s.CI === Representative.CI ) ) return false

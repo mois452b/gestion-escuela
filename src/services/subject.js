@@ -3,7 +3,7 @@ export const getSubjects = async () => {
     return JSON.parse(localStorage.getItem('academicPeriods')) || []
 }
 
-export const uploadSubjects = async (subject) => {
+export const uploadSubject = async (subject) => {
 
     if( !subject ) return false
     const subjects = await getSubjects()

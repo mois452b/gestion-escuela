@@ -3,7 +3,7 @@ export const getTeachers = async () => {
     return JSON.parse(localStorage.getItem('academicPeriods')) || []
 }
 
-export const uploadTeachers = async (teacher) => {
+export const uploadTeacher = async (teacher) => {
     if( !teacher ) return false
     const teachers = await getTeachers()
     if( teachers.find( s => s.CI === teacher.CI ) ) return false

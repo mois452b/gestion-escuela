@@ -22,6 +22,7 @@ export function OpenAcademicPeriods() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     let data = await uploadAcademicPeriods( academicPeriods )
+    console.log( data )
     if( data ) {
       setAcademicPeriods( openAcademicPeriods )
       alert( 'Período acadademico abierto exitosamente' )
