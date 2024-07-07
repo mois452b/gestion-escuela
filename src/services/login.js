@@ -1,10 +1,11 @@
+import { getTeachers } from "./teachers";
 
 /**
- * intenta realisar la autenticacion de un usuario admin. 
+ * intenta realisar la autenticacion de un usuario admin o teacher. 
  * retorna falso si no se autenticó 
  * retorna los datos de usuario en formato json en caso de exito
  */
-export const authAdmin = ( username, password ) => {
+export const auth = ( username, password ) => {
     if ( !username || !password ) {
         return false;
     }
@@ -17,6 +18,15 @@ export const authAdmin = ( username, password ) => {
             name: 'admin',
             type: 'admin'
         }
+    }
+
+    const teacher = getTeachers().find( teacher => teacher.firstName === username && teacher.password === password )
+    if( teacher ) {
+        localStorage.setItem('isLoggedIn', true);
+        localStorage.setItem('userType', 'teacher');
+        localStorage.setItem('user', JSON.stringify(teacher));
+        teacher.type = 'teacher'
+        return teacher
     }
     
     return false

@@ -1,7 +1,7 @@
 import { TEInput, TERipple } from "tw-elements-react";
 import logo from '../imagen/Sera.png';
 import { useState } from "react";
-import { authAdmin } from "../services/login";
+import { auth } from "../services/login";
 import { useNavigate } from "react-router-dom";
 
 export function Login() {
@@ -13,7 +13,7 @@ export function Login() {
   const onSubmit = (event) => {
     event.preventDefault();
 
-    let datas = authAdmin( username, password )
+    let datas = auth( username, password )
     if( datas ) {
       navigate('/')
       return
