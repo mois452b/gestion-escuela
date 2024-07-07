@@ -1,8 +1,8 @@
 import { useState } from 'react';
-
+import { uploadTeacher } from '../services/teachers';
 
 export function UploadTeacher() {
-    const [teacherData, setTeacherData] = useState({
+    const defaultTeacherData = {
       firstName: '',
       lastName: '',
       CI: '',
@@ -10,7 +10,9 @@ export function UploadTeacher() {
       phone: '',
       address: '',
       position: '',
-    });
+    }
+  
+    const [teacherData, setTeacherData] = useState( defaultTeacherData );
   
     const handleInputChange = (event) => {
       const { name, value } = event.target;
@@ -22,7 +24,13 @@ export function UploadTeacher() {
   
     const handleSubmit = (event) => {
       event.preventDefault();
-      console.log('Teacher Data:', teacherData);
+      let data = uploadTeacher( teacherData )
+      if( data ) {
+        setTeacherData( defaultTeacherData )
+        alert( 'Docente registrado exitosamente' )
+        return
+      }
+      alert( 'No se pudo registrar el docente' )
     };
   
     return <>

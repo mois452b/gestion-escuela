@@ -1,16 +1,19 @@
 import { useState } from 'react';
+import { uploadRepresentative } from '../services/representatives';
 
 export function UploadRepresentative() {
-    const [representativeData, setRepresentativeData] = useState({
+    const defaultRepresentativeData = {
       name: '',
-      lastname: '',
+      lastName: '',
       CI: '',
       birthdate: '',
+      address: '',
       phone: '',
       email: '',
-      address: '',
-    });
-  
+    }
+
+    const [representativeData, setRepresentativeData] = useState( defaultRepresentativeData );
+    
     const handleInputChange = (event) => {
       const { name, value } = event.target;
       setRepresentativeData((prevState) => ({
@@ -21,7 +24,13 @@ export function UploadRepresentative() {
   
     const handleSubmit = (event) => {
       event.preventDefault();
-      console.log('Representative Data:', representativeData);
+      let data = uploadRepresentative( representativeData )
+      if( data ) {
+        setRepresentativeData( defaultRepresentativeData )
+        alert( 'Representante registrado exitosamente' )
+        return
+      }
+      alert( 'No se pudo registrar el representante' )
     };
   
     return <>

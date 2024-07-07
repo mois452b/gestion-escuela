@@ -17,6 +17,7 @@ export const uploadStudent = async (student) => {
     return student
 }
 
+
 export const getStudent = async ( CI ) => {
     const students = getStudents()
     return students.find(student => student.CI === CI)

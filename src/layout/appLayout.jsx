@@ -21,7 +21,7 @@ export const AppLayout = ({ children }) => {
     }
 
     return (
-        <div className="flex h-screen">
+        <div className="flex ">
             {isLoggedIn && isAdmin && <aside className="w-1/4 bg-gray-200 p-4">
                 <AsideMenu />
             </aside>}

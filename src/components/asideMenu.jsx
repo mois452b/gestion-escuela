@@ -19,7 +19,7 @@ export const AsideMenu = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link to="/sections">
+                        <Link to="/open-session">
                             <button className="w-full text-left px-4 py-3 bg-blue-600 hover:bg-blue-700 transition-colors duration-200 flex items-center rounded-md">
                                 <FontAwesomeIcon icon={faChalkboardTeacher} className="mr-3" />
                                 Secciones

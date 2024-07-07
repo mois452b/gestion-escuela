@@ -1,11 +1,15 @@
 import { useState } from 'react';
+import { uploadSubject } from '../services/subject';
+
 
 export function UploadSubject() {
-    const [subjectData, setSubjectData] = useState({
+    const defaultSubjectData = {
       name: '',
       code: '',
       description: '',
-    });
+    }
+
+    const [subjectData, setSubjectData] = useState(defaultSubjectData);
   
     const handleInputChange = (event) => {
       const { name, value } = event.target;
@@ -17,7 +21,14 @@ export function UploadSubject() {
   
     const handleSubmit = (event) => {
       event.preventDefault();
-      console.log('Subject Data:', subjectData);
+      let data = uploadSubject( subjectData )
+      if( data ) {
+        setSubjectData( defaultSubjectData )
+        alert( 'Asignatura registrada exitosamente' )
+        return
+      }
+      alert( 'No se pudo registrar la asignatura' )
+
     };
   
     return <>
