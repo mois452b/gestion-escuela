@@ -10,16 +10,16 @@ export function Login() {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
 
-  const onSubmit = (event) => {
+  const onSubmit = async (event) => {
     event.preventDefault();
 
-    let datas = auth( username, password )
+    let datas = await auth( username, password )
     if( datas && datas.type == "admin" ) {
       navigate('/')
       return
     }
     if( datas && datas.type == "teacher" ) {
-      navigate('/')
+      navigate('/upload-grades')
       return
     }
     alert("Credenciales incorrectas")

@@ -26,14 +26,14 @@ export const AsideMenu = () => {
                             </button>
                         </Link>
                     </li>
-                    <li>
+                    {/* <li>
                         <Link to="/assign-academic-positions">
                             <button className="w-full text-left px-4 py-3 bg-blue-600 hover:bg-blue-700 transition-colors duration-200 flex items-center rounded-md">
                                 <FontAwesomeIcon icon={faTasks} className="mr-3" />
                                 Asignar Cargos Académicos
                             </button>
                         </Link>
-                    </li>
+                    </li> */}
                     <li>
                         <Link to="/upload-teacher">
                             <button className="w-full text-left px-4 py-3 bg-blue-600 hover:bg-blue-700 transition-colors duration-200 flex items-center rounded-md">
@@ -50,14 +50,14 @@ export const AsideMenu = () => {
                             </button>
                         </Link>
                     </li>
-                    <li>
+                    {/* <li>
                         <Link to="/upload-representative">
                             <button className="w-full text-left px-4 py-3 bg-blue-600 hover:bg-blue-700 transition-colors duration-200 flex items-center rounded-md">
                                 <FontAwesomeIcon icon={faUsers} className="mr-3" />
                                 Cargar Datos de Representantes
                             </button>
                         </Link>
-                    </li>
+                    </li> */}
                     <li>
                         <Link to="/upload-student">
                             <button className="w-full text-left px-4 py-3 bg-blue-600 hover:bg-blue-700 transition-colors duration-200 flex items-center rounded-md">

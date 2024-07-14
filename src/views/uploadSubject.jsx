@@ -1,16 +1,26 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { uploadSubject } from '../services/subject';
+import { getTeachers } from '../services/teachers';
 
 
 export function UploadSubject() {
     const defaultSubjectData = {
       name: '',
       code: '',
-      description: '',
+      teacherId: '',
     }
 
     const [subjectData, setSubjectData] = useState(defaultSubjectData);
+    const [teachers, setTeachers] = useState([]);
   
+    console.log(teachers)
+    useEffect( () => {
+      ( async () => {
+        const datas = await getTeachers( )
+        setTeachers( datas )
+      })()
+    }, [])
+
     const handleInputChange = (event) => {
       const { name, value } = event.target;
       setSubjectData((prevState) => ({
@@ -19,9 +29,10 @@ export function UploadSubject() {
       }));
     };
   
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
       event.preventDefault();
-      let data = uploadSubject( subjectData )
+      let data =  await uploadSubject( subjectData )
+      console.log(data)
       if( data ) {
         setSubjectData( defaultSubjectData )
         alert( 'Asignatura registrada exitosamente' )
@@ -65,16 +76,23 @@ export function UploadSubject() {
           </div>
 
           <div className="mb-4">
-            <label htmlFor="description" className="block text-sm font-medium text-gray-700">
-              Descripción
+            <label htmlFor="teacher" className="block text-sm font-medium text-gray-700">
+              Profesor
             </label>
-            <textarea
-              id="description"
-              name="description"
-              value={subjectData.description}
+            <select
+              id="teacherId"
+              name="teacherId"
+              value={subjectData.teacherId}
               onChange={handleInputChange}
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-            ></textarea>
+            >
+              <option value="" disabled>Seleccione un profesor</option>
+              {teachers.map((teacher) => (
+                <option key={teacher.CI} value={teacher.CI}>
+                  {teacher.firstName} {teacher.lastName}
+                </option>
+              ))}
+            </select>
           </div>
 
           <button

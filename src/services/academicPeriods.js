@@ -4,9 +4,10 @@ export const getAcademicPeriods = async () => {
 }
 
 export const uploadAcademicPeriods = async (academicPeriod) => {
-    if( !academicPeriod  || (academicPeriod.startYear > academicPeriod.endYear)) return false // acomodar 
+    if( !academicPeriod  || ( academicPeriod.endYear != academicPeriod.startYear + 1 )) return false 
 
     const academicPeriods = await getAcademicPeriods()
+    if( academicPeriods.find( data => data.endYear === academicPeriod.endYear && data.startYear === academicPeriod.startYear ) ) return false
     academicPeriod.id = academicPeriods.length + 1
     if( academicPeriods.find( s => s.id === academicPeriod.id ) ) return false
     academicPeriods.push(academicPeriod)

@@ -6,10 +6,8 @@ export function UploadTeacher() {
       firstName: '',
       lastName: '',
       CI: '',
-      birthDate: '',
       phone: '',
-      address: '',
-      position: '',
+      email: ''
     }
   
     const [teacherData, setTeacherData] = useState( defaultTeacherData );
@@ -22,9 +20,9 @@ export function UploadTeacher() {
       }));
     };
   
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
       event.preventDefault();
-      let data = uploadTeacher( teacherData )
+      let data = await uploadTeacher( teacherData )
       if( data ) {
         setTeacherData( defaultTeacherData )
         alert( 'Docente registrado exitosamente' )
@@ -74,17 +72,6 @@ export function UploadTeacher() {
             />
           </div>
 
-          <div className="mb-4">
-            <label htmlFor="birthDate" className="block text-sm font-medium text-gray-700">Fecha de Nacimiento</label>
-            <input
-              type="date"
-              id="birthDate"
-              name="birthDate"
-              value={teacherData.birthDate}
-              onChange={handleInputChange}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-            />
-          </div>
 
           <div className="mb-4">
             <label htmlFor="phone" className="block text-sm font-medium text-gray-700">Teléfono</label>
@@ -111,12 +98,12 @@ export function UploadTeacher() {
           </div>
 
           <div className="mb-4">
-            <label htmlFor="position" className="block text-sm font-medium text-gray-700">Cargo</label>
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700">email</label>
             <input
               type="text"
-              id="position"
-              name="position"
-              value={teacherData.position}
+              id="email"
+              name="email"
+              value={teacherData.email}
               onChange={handleInputChange}
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
             />

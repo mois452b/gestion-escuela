@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { uploadStudent } from '../services/students';
+import { getSections } from '../services/sections';
 
 export function UploadStudent() {
   const defaultStudentData = {
@@ -9,8 +10,16 @@ export function UploadStudent() {
     gender: '',
     birthdate: '',
     address: '',
+    sectionId: '',
   }
   const [studentData, setStudentData] = useState( defaultStudentData );
+  const [sections, setSections] = useState([])
+
+  useEffect( () => {
+    ( async () => {
+      setSections( await getSections() )
+    })()
+  }, [])
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -97,6 +106,26 @@ export function UploadStudent() {
               onChange={handleInputChange}
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
             />
+          </div>
+
+          <div className="mb-4">
+            <label htmlFor="sectionId" className="block text-sm font-medium text-gray-700">
+              seccion
+            </label>
+            <select
+              id="sectionId"
+              name="sectionId"
+              value={studentData.sectionId}
+              onChange={handleInputChange}
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+            >
+              <option value="" disabled>Seleccione una seccion</option>
+              {sections.map((section) => (
+                <option key={section.id} value={section.id}>
+                  {section.gradeLevel} - {section.section}
+                </option>
+              ))}
+            </select>
           </div>
 
           <div className="mb-4">

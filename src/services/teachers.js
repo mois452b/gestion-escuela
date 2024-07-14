@@ -4,7 +4,7 @@ export const getTeachers = async () => {
 }
 
 export const uploadTeacher = async (teacher) => {
-    if( !teacher ) return false
+    if( !teacher || !teacher.firstName || !teacher.lastName || !teacher.CI || !teacher.phone || !teacher.email ) return false
     const teachers = await getTeachers()
     if( teachers.find( s => s.CI === teacher.CI ) ) return false
     teacher.password = teacher.CI

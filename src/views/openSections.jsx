@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getAcademicPeriods } from '../services/academicPeriods';
+import { uploadSection } from '../services/sections';
 
 export function OpenSections() {
   const [sectionsData, setSectionsData] = useState({
@@ -39,7 +40,18 @@ export function OpenSections() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(sectionsData);
+    let data = await uploadSection( sectionsData )
+    if( data ) {
+      setSectionsData({
+        academicPeriod: '',
+        gradeLevel: '',
+        section: '',
+        maxStudents: ''
+      })
+      alert( 'seccion abierto exitosamente' )
+      return
+    }
+    alert( 'No se pudo abrir la seccion' )
   };
 
   return (
